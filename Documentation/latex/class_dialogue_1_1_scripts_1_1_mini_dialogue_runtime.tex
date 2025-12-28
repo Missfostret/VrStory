@@ -1,0 +1,205 @@
+\doxysection{Dialogue.\+Scripts.\+Mini\+Dialogue\+Runtime Class Reference}
+\hypertarget{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime}{}\label{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime}\index{Dialogue.Scripts.MiniDialogueRuntime@{Dialogue.Scripts.MiniDialogueRuntime}}
+
+
+Executes parsed dialogue nodes and emits events for lines, options, variables, and end-\/of-\/dialogue.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aa2b5e89e9a0b89cbde80b9b6ae8e2849}{Interpolate}} (string text)
+\begin{DoxyCompactList}\small\item\em Replaces any {\ttfamily \{var\+Name\}} tokens with values from the runtime variable store. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a3a2ce0a2e00fb85ace2f1584ee00e5ca}{Get$<$ T $>$}} (string name, T default\+Value=default)
+\begin{DoxyCompactList}\small\item\em Gets a variable value typed as {\itshape T} , or returns {\itshape default\+Value}  if the variable is not present or has a different type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aa8569fb967cdd980cdedf2440f7cd1cc}{Set}} (string name, object value)
+\begin{DoxyCompactList}\small\item\em Sets a runtime variable to the specified value. \end{DoxyCompactList}\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a8188606228eeeed516cec0fd55567621}\label{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a8188606228eeeed516cec0fd55567621} 
+bool {\bfseries Has} (string name)
+\begin{DoxyCompactList}\small\item\em Returns true if the variable exists in the store (regardless of its value). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_af73f9fd47a00980d8ec5afda4dbd940e}{Mini\+Dialogue\+Runtime}} (Dictionary$<$ string, \mbox{\hyperlink{class_mini_node}{Mini\+Node}} $>$ nodes)
+\begin{DoxyCompactList}\small\item\em Creates a new runtime for the given parsed node dictionary. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_ada7bf8860037868f00dd22c291c419a3}{Start\+Node}} (string node\+Name)
+\begin{DoxyCompactList}\small\item\em Starts execution at the given node name and immediately advances until the first line/options/end is reached. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a4f00ecde4a58e42b44bb983ff779fac8}{Continue}} ()
+\begin{DoxyCompactList}\small\item\em Continues execution until the next visible output boundary\+: a line (\doxylink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aa4722a044c0aae24e707236022d40981}{On\+Line}), options (\doxylink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a24f65e488b7b2ba448bee8e17964deff}{On\+Options}), or end (\doxylink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a5ed0a271cf977279d8c6aea5cf76fe58}{On\+End}). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_ac175155ab9b1d46ee486d9efdf01092f}{Choose}} (int option\+Index)
+\begin{DoxyCompactList}\small\item\em Selects an option from the currently displayed choices and executes its commands. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aa0deaa3b92a13714e96b0df54cc91aba}\label{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aa0deaa3b92a13714e96b0df54cc91aba} 
+bool {\bfseries Just\+Jumped}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em True immediately after a Jump(string) occurs and until a \doxylink{class_line_step}{Line\+Step} is emitted. Useful for UI logic that needs to know a jump just happened. \end{DoxyCompactList}\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aac62c4f9727841e1d270e66fb5fe2b55}\label{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aac62c4f9727841e1d270e66fb5fe2b55} 
+bool {\bfseries Is\+Next\+Step\+Choice}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em True if the next step in the current node is a \doxylink{class_choice_step}{Choice\+Step}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aa4722a044c0aae24e707236022d40981}\label{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aa4722a044c0aae24e707236022d40981} 
+Action$<$ string $>$ {\bfseries On\+Line}
+\begin{DoxyCompactList}\small\item\em Raised when the runtime reaches a \doxylink{class_line_step}{Line\+Step}. The string is the raw line text (not automatically interpolated). \end{DoxyCompactList}\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a24f65e488b7b2ba448bee8e17964deff}\label{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a24f65e488b7b2ba448bee8e17964deff} 
+Action$<$ IRead\+Only\+List$<$ string $>$ $>$ {\bfseries On\+Options}
+\begin{DoxyCompactList}\small\item\em Raised when the runtime reaches a \doxylink{class_choice_step}{Choice\+Step}. The list contains the display labels for available choices (filtered by conditions). \end{DoxyCompactList}\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a5ed0a271cf977279d8c6aea5cf76fe58}\label{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a5ed0a271cf977279d8c6aea5cf76fe58} 
+Action {\bfseries On\+End}
+\begin{DoxyCompactList}\small\item\em Raised when the current node finishes or the runtime has no more steps to process. \end{DoxyCompactList}\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aa0e04e2dd98017e19ba9ab3b41d47aba}\label{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aa0e04e2dd98017e19ba9ab3b41d47aba} 
+Action$<$ string, object $>$ {\bfseries On\+Variable\+Set}
+\begin{DoxyCompactList}\small\item\em Raised when a variable is set via a \doxylink{class_set_command}{Set\+Command}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Executes parsed dialogue nodes and emits events for lines, options, variables, and end-\/of-\/dialogue. 
+
+The runtime processes a \doxylink{class_mini_node}{Mini\+Node} step-\/by-\/step\+: \doxylink{class_line_step}{Line\+Step} triggers \doxylink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aa4722a044c0aae24e707236022d40981}{On\+Line}, \doxylink{class_choice_step}{Choice\+Step} triggers \doxylink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a24f65e488b7b2ba448bee8e17964deff}{On\+Options}, and \doxylink{class_command_step}{Command\+Step} executes an \doxylink{interface_i_command}{ICommand} immediately. 
+
+This class is UI-\/agnostic\+: it only raises events and exposes methods like \doxylink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a4f00ecde4a58e42b44bb983ff779fac8}{Continue} and \doxylink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_ac175155ab9b1d46ee486d9efdf01092f}{Choose}. A view/controller (e.\+g., {\ttfamily \doxylink{class_dialogue_1_1_scripts_1_1_dialogue_u_i_controller}{Dialogue\+UIController}}) is expected to subscribe and drive presentation and input. 
+
+{\bfseries{Variables}}
+
+Variables are stored in a case-\/insensitive dictionary and can be substituted into lines using \doxylink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aa2b5e89e9a0b89cbde80b9b6ae8e2849}{Interpolate}. Supported pattern\+: {\ttfamily \{var\+Name\}}. 
+
+\label{doc-constructors}
+\Hypertarget{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_af73f9fd47a00980d8ec5afda4dbd940e}\index{Dialogue.Scripts.MiniDialogueRuntime@{Dialogue.Scripts.MiniDialogueRuntime}!MiniDialogueRuntime@{MiniDialogueRuntime}}
+\index{MiniDialogueRuntime@{MiniDialogueRuntime}!Dialogue.Scripts.MiniDialogueRuntime@{Dialogue.Scripts.MiniDialogueRuntime}}
+\doxysubsubsection{\texorpdfstring{MiniDialogueRuntime()}{MiniDialogueRuntime()}}
+{\footnotesize\ttfamily \label{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_af73f9fd47a00980d8ec5afda4dbd940e} 
+Dialogue.\+Scripts.\+Mini\+Dialogue\+Runtime.\+Mini\+Dialogue\+Runtime (\begin{DoxyParamCaption}\item[{Dictionary$<$ string, \mbox{\hyperlink{class_mini_node}{Mini\+Node}} $>$}]{nodes}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new runtime for the given parsed node dictionary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodes} & Parsed dialogue nodes keyed by node name.\\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_ac175155ab9b1d46ee486d9efdf01092f}\index{Dialogue.Scripts.MiniDialogueRuntime@{Dialogue.Scripts.MiniDialogueRuntime}!Choose@{Choose}}
+\index{Choose@{Choose}!Dialogue.Scripts.MiniDialogueRuntime@{Dialogue.Scripts.MiniDialogueRuntime}}
+\doxysubsubsection{\texorpdfstring{Choose()}{Choose()}}
+{\footnotesize\ttfamily \label{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_ac175155ab9b1d46ee486d9efdf01092f} 
+void Dialogue.\+Scripts.\+Mini\+Dialogue\+Runtime.\+Choose (\begin{DoxyParamCaption}\item[{int}]{option\+Index}{}\end{DoxyParamCaption})}
+
+
+
+Selects an option from the currently displayed choices and executes its commands. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em option\+Index} & Index into the displayed (filtered) choice list, 0-\/based.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Out\+Of\+Range\+Exception} & Thrown if {\itshape option\+Index}  is invalid.\\
+\hline
+\end{DoxyExceptions}
+
+
+After executing the selected choice\textquotesingle{}s commands, the runtime automatically calls \doxylink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a4f00ecde4a58e42b44bb983ff779fac8}{Continue} to advance to the next line/options/end. \Hypertarget{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a4f00ecde4a58e42b44bb983ff779fac8}\index{Dialogue.Scripts.MiniDialogueRuntime@{Dialogue.Scripts.MiniDialogueRuntime}!Continue@{Continue}}
+\index{Continue@{Continue}!Dialogue.Scripts.MiniDialogueRuntime@{Dialogue.Scripts.MiniDialogueRuntime}}
+\doxysubsubsection{\texorpdfstring{Continue()}{Continue()}}
+{\footnotesize\ttfamily \label{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a4f00ecde4a58e42b44bb983ff779fac8} 
+void Dialogue.\+Scripts.\+Mini\+Dialogue\+Runtime.\+Continue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Continues execution until the next visible output boundary\+: a line (\doxylink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aa4722a044c0aae24e707236022d40981}{On\+Line}), options (\doxylink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a24f65e488b7b2ba448bee8e17964deff}{On\+Options}), or end (\doxylink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a5ed0a271cf977279d8c6aea5cf76fe58}{On\+End}). 
+
+If the runtime is currently waiting for a choice selection (\+\_\+waiting\+Choice\+Step), this method returns immediately without doing anything. \Hypertarget{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a3a2ce0a2e00fb85ace2f1584ee00e5ca}\index{Dialogue.Scripts.MiniDialogueRuntime@{Dialogue.Scripts.MiniDialogueRuntime}!Get$<$ T $>$@{Get$<$ T $>$}}
+\index{Get$<$ T $>$@{Get$<$ T $>$}!Dialogue.Scripts.MiniDialogueRuntime@{Dialogue.Scripts.MiniDialogueRuntime}}
+\doxysubsubsection{\texorpdfstring{Get$<$ T $>$()}{Get< T >()}}
+{\footnotesize\ttfamily \label{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_a3a2ce0a2e00fb85ace2f1584ee00e5ca} 
+T Dialogue.\+Scripts.\+Mini\+Dialogue\+Runtime.\+Get$<$ T $>$ (\begin{DoxyParamCaption}\item[{string}]{name}{, }\item[{T}]{default\+Value}{ = {\ttfamily default}}\end{DoxyParamCaption})}
+
+
+
+Gets a variable value typed as {\itshape T} , or returns {\itshape default\+Value}  if the variable is not present or has a different type. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Expected variable type.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Variable name.\\
+\hline
+{\em default\+Value} & Value to return when missing or incompatible.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aa2b5e89e9a0b89cbde80b9b6ae8e2849}\index{Dialogue.Scripts.MiniDialogueRuntime@{Dialogue.Scripts.MiniDialogueRuntime}!Interpolate@{Interpolate}}
+\index{Interpolate@{Interpolate}!Dialogue.Scripts.MiniDialogueRuntime@{Dialogue.Scripts.MiniDialogueRuntime}}
+\doxysubsubsection{\texorpdfstring{Interpolate()}{Interpolate()}}
+{\footnotesize\ttfamily \label{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aa2b5e89e9a0b89cbde80b9b6ae8e2849} 
+string Dialogue.\+Scripts.\+Mini\+Dialogue\+Runtime.\+Interpolate (\begin{DoxyParamCaption}\item[{string}]{text}{}\end{DoxyParamCaption})}
+
+
+
+Replaces any {\ttfamily \{var\+Name\}} tokens with values from the runtime variable store. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Input text possibly containing interpolation tokens.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Interpolated text. If a variable is missing or null, the original token is left unchanged. 
+\end{DoxyReturn}
+
+
+Formatting rules\+: 
+\begin{DoxyItemize}
+\item bool becomes "{}true"{}/"{}false"{}. 
+\item double and float use invariant culture. 
+\item Other types use object.\+To\+String. 
+\end{DoxyItemize}\Hypertarget{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aa8569fb967cdd980cdedf2440f7cd1cc}\index{Dialogue.Scripts.MiniDialogueRuntime@{Dialogue.Scripts.MiniDialogueRuntime}!Set@{Set}}
+\index{Set@{Set}!Dialogue.Scripts.MiniDialogueRuntime@{Dialogue.Scripts.MiniDialogueRuntime}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}}
+{\footnotesize\ttfamily \label{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aa8569fb967cdd980cdedf2440f7cd1cc} 
+void Dialogue.\+Scripts.\+Mini\+Dialogue\+Runtime.\+Set (\begin{DoxyParamCaption}\item[{string}]{name}{, }\item[{object}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Sets a runtime variable to the specified value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Variable name.\\
+\hline
+{\em value} & Value to store.\\
+\hline
+\end{DoxyParams}
+
+
+This does not raise \doxylink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_aa0e04e2dd98017e19ba9ab3b41d47aba}{On\+Variable\+Set}; that event is raised only for \doxylink{class_set_command}{Set\+Command}. \Hypertarget{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_ada7bf8860037868f00dd22c291c419a3}\index{Dialogue.Scripts.MiniDialogueRuntime@{Dialogue.Scripts.MiniDialogueRuntime}!StartNode@{StartNode}}
+\index{StartNode@{StartNode}!Dialogue.Scripts.MiniDialogueRuntime@{Dialogue.Scripts.MiniDialogueRuntime}}
+\doxysubsubsection{\texorpdfstring{StartNode()}{StartNode()}}
+{\footnotesize\ttfamily \label{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime_ada7bf8860037868f00dd22c291c419a3} 
+void Dialogue.\+Scripts.\+Mini\+Dialogue\+Runtime.\+Start\+Node (\begin{DoxyParamCaption}\item[{string}]{node\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Starts execution at the given node name and immediately advances until the first line/options/end is reached. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\+Name} & Name of the node to start at.\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Dialogue/\+Scripts/Mini\+Dialogue\+Runtime.\+cs\end{DoxyCompactItemize}

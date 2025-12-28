@@ -1,0 +1,39 @@
+\doxysection{Dialogue.\+Scripts.\+Dialogue\+Bootstrap Class Reference}
+\hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_bootstrap}{}\label{class_dialogue_1_1_scripts_1_1_dialogue_bootstrap}\index{Dialogue.Scripts.DialogueBootstrap@{Dialogue.Scripts.DialogueBootstrap}}
+
+
+Unity bootstrapper that loads a dialogue script from a Text\+Asset, creates a {\ttfamily \doxylink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime}{Mini\+Dialogue\+Runtime}}, and wires player input actions to drive the dialogue.  
+
+
+Inheritance diagram for Dialogue.\+Scripts.\+Dialogue\+Bootstrap\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_dialogue_1_1_scripts_1_1_dialogue_bootstrap}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_bootstrap_aa5243114e16ecfa059b2e642f12def34}\label{class_dialogue_1_1_scripts_1_1_dialogue_bootstrap_aa5243114e16ecfa059b2e642f12def34} 
+Text\+Asset {\bfseries dialogue\+File}
+\begin{DoxyCompactList}\small\item\em \doxylink{namespace_dialogue}{Dialogue} text file to parse (e.\+g., a .txt asset in the project). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Unity bootstrapper that loads a dialogue script from a Text\+Asset, creates a {\ttfamily \doxylink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime}{Mini\+Dialogue\+Runtime}}, and wires player input actions to drive the dialogue. 
+
+Responsibilities\+: 
+\begin{DoxyItemize}
+\item Parse dialogue nodes/lines from \doxylink{class_dialogue_1_1_scripts_1_1_dialogue_bootstrap_aa5243114e16ecfa059b2e642f12def34}{dialogue\+File}. 
+\item Instantiate and configure the dialogue runtime. 
+\item Subscribe to runtime events to display output (currently via Debug.\+Log). 
+\item Enable/disable input actions and map them to Continue/\+Choose calls. 
+\end{DoxyItemize}Notes\+: 
+
+Input actions are expected to come from the "{}\+Dialogue"{} action map.
+
+This component starts the dialogue at node "{}\+Intro"{}.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Dialogue/\+Scripts/Dialogue\+Bootstrap.\+cs\end{DoxyCompactItemize}

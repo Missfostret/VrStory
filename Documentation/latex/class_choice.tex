@@ -1,0 +1,68 @@
+\doxysection{Choice Class Reference}
+\hypertarget{class_choice}{}\label{class_choice}\index{Choice@{Choice}}
+
+
+Represents a single selectable dialogue choice.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_choice_acce5fbb0f12c87cf601bb7ace7631690}{Choice}} (string text, string condition\+Var)
+\begin{DoxyCompactList}\small\item\em Creates a new dialogue choice. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_choice_a0990ce18ef24a873a029dc203fb5c766}\label{class_choice_a0990ce18ef24a873a029dc203fb5c766} 
+string {\bfseries Text}
+\begin{DoxyCompactList}\small\item\em Text displayed to the player for this choice. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_choice_a873c0030ee26c22e3cee45d0d5707e56}{Condition\+Var}}
+\begin{DoxyCompactList}\small\item\em Optional condition variable name that controls whether this choice is available. If null or empty, the choice is always available. \end{DoxyCompactList}\item 
+\Hypertarget{class_choice_acf5b00ac0b0d761980d53ed993318daf}\label{class_choice_acf5b00ac0b0d761980d53ed993318daf} 
+List$<$ \mbox{\hyperlink{interface_i_command}{ICommand}} $>$ {\bfseries Commands} = new()
+\begin{DoxyCompactList}\small\item\em Commands executed when this choice is selected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a single selectable dialogue choice. 
+
+\label{doc-constructors}
+\Hypertarget{class_choice_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_choice_acce5fbb0f12c87cf601bb7ace7631690}\index{Choice@{Choice}!Choice@{Choice}}
+\index{Choice@{Choice}!Choice@{Choice}}
+\doxysubsubsection{\texorpdfstring{Choice()}{Choice()}}
+{\footnotesize\ttfamily \label{class_choice_acce5fbb0f12c87cf601bb7ace7631690} 
+Choice.\+Choice (\begin{DoxyParamCaption}\item[{string}]{text}{, }\item[{string}]{condition\+Var}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new dialogue choice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Display text for the choice.\\
+\hline
+{\em condition\+Var} & Optional condition variable that must be satisfied for the choice to appear. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_choice_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_choice_a873c0030ee26c22e3cee45d0d5707e56}\index{Choice@{Choice}!ConditionVar@{ConditionVar}}
+\index{ConditionVar@{ConditionVar}!Choice@{Choice}}
+\doxysubsubsection{\texorpdfstring{ConditionVar}{ConditionVar}}
+{\footnotesize\ttfamily \label{class_choice_a873c0030ee26c22e3cee45d0d5707e56} 
+string Choice.\+Condition\+Var}
+
+
+
+Optional condition variable name that controls whether this choice is available. If null or empty, the choice is always available. 
+
+The runtime is responsible for interpreting and evaluating this condition. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Dialogue/\+Scripts/Mini\+Dialogue\+Model.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,44 @@
+\doxysection{Dialogue.\+Scripts.\+Dialogue\+UIController Class Reference}
+\hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_u_i_controller}{}\label{class_dialogue_1_1_scripts_1_1_dialogue_u_i_controller}\index{Dialogue.Scripts.DialogueUIController@{Dialogue.Scripts.DialogueUIController}}
+
+
+High-\/level controller that connects a parsed dialogue file (Text\+Asset) to a UI view (\doxylink{class_dialogue_1_1_scripts_1_1_dialogue_view}{Dialogue\+View}) and optional input actions.  
+
+
+Inheritance diagram for Dialogue.\+Scripts.\+Dialogue\+UIController\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_dialogue_1_1_scripts_1_1_dialogue_u_i_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_u_i_controller_ab1ee431de630d9e3c41aa4a08f547a98}\label{class_dialogue_1_1_scripts_1_1_dialogue_u_i_controller_ab1ee431de630d9e3c41aa4a08f547a98} 
+Text\+Asset {\bfseries dialogue\+File}
+\begin{DoxyCompactList}\small\item\em \doxylink{namespace_dialogue}{Dialogue} source file (text) to parse at startup. \end{DoxyCompactList}\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_u_i_controller_a50b8520dbfadbc78abf42ef3eae1d86a}\label{class_dialogue_1_1_scripts_1_1_dialogue_u_i_controller_a50b8520dbfadbc78abf42ef3eae1d86a} 
+\mbox{\hyperlink{class_dialogue_1_1_scripts_1_1_dialogue_view}{Dialogue\+View}} {\bfseries view}
+\begin{DoxyCompactList}\small\item\em View component responsible for rendering dialogue text and option buttons. \end{DoxyCompactList}\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_u_i_controller_acea8b82cfe48fd1fe445d9d7e03b3b81}\label{class_dialogue_1_1_scripts_1_1_dialogue_u_i_controller_acea8b82cfe48fd1fe445d9d7e03b3b81} 
+Input\+Action\+Reference {\bfseries advance}
+\begin{DoxyCompactList}\small\item\em Optional input action used to advance the dialogue. If not assigned, advancing can still occur via UI (e.\+g., clicking choices) or other scripts. \end{DoxyCompactList}\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_u_i_controller_aafd651a12a87ae715cdaf23e61c80d53}\label{class_dialogue_1_1_scripts_1_1_dialogue_u_i_controller_aafd651a12a87ae715cdaf23e61c80d53} 
+string {\bfseries Start\+Node\+Name}
+\begin{DoxyCompactList}\small\item\em Name of the node to start from when the runtime begins (e.\+g., "{}Intro"{}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+High-\/level controller that connects a parsed dialogue file (Text\+Asset) to a UI view (\doxylink{class_dialogue_1_1_scripts_1_1_dialogue_view}{Dialogue\+View}) and optional input actions. 
+
+Responsibilities\+: 
+\begin{DoxyItemize}
+\item Parse a dialogue file into nodes/steps and create a {\ttfamily \doxylink{class_dialogue_1_1_scripts_1_1_mini_dialogue_runtime}{Mini\+Dialogue\+Runtime}}. 
+\item Subscribe to runtime events ({\ttfamily On\+Line}, {\ttfamily On\+Options}, {\ttfamily On\+End}, {\ttfamily On\+Variable\+Set}). 
+\item Drive the UI\+: type lines, show option buttons, and handle end-\/of-\/dialogue state. 
+\item Handle player input\+: advance (continue) and option selection. 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Dialogue/\+Scripts/Dialogue\+UIController.\+cs\end{DoxyCompactItemize}

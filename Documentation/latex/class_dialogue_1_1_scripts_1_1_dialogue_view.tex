@@ -1,0 +1,134 @@
+\doxysection{Dialogue.\+Scripts.\+Dialogue\+View Class Reference}
+\hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_view}{}\label{class_dialogue_1_1_scripts_1_1_dialogue_view}\index{Dialogue.Scripts.DialogueView@{Dialogue.Scripts.DialogueView}}
+
+
+UI controller for displaying dialogue text and presenting selectable dialogue options.  
+
+
+Inheritance diagram for Dialogue.\+Scripts.\+Dialogue\+View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_dialogue_1_1_scripts_1_1_dialogue_view}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_view_a437214ddfcf5608992f2af9247bda56b}\label{class_dialogue_1_1_scripts_1_1_dialogue_view_a437214ddfcf5608992f2af9247bda56b} 
+void {\bfseries Clear\+Options} ()
+\begin{DoxyCompactList}\small\item\em Destroys any currently spawned option buttons and clears the internal list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_dialogue_1_1_scripts_1_1_dialogue_view_a3759a183ebf724aadc3d6c1227ec1c10}{Set\+Line\+Instant}} (string text)
+\begin{DoxyCompactList}\small\item\em Stops any ongoing typewriter effect and immediately sets the dialogue text to {\itshape text} . \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_dialogue_1_1_scripts_1_1_dialogue_view_a7d71fc70ee3f71527a913d46da3b3e87}{Type\+Line}} (string text, Action on\+Finished)
+\begin{DoxyCompactList}\small\item\em Displays a line using a typewriter effect. When finished, invokes {\itshape on\+Finished} . \end{DoxyCompactList}\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_view_afeeafa291c0126146a248d09906836c9}\label{class_dialogue_1_1_scripts_1_1_dialogue_view_afeeafa291c0126146a248d09906836c9} 
+void {\bfseries Hurry\+Up} ()
+\begin{DoxyCompactList}\small\item\em If typing is currently in progress, completes it immediately, updates the text to the full line, and invokes the completion callback. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_dialogue_1_1_scripts_1_1_dialogue_view_abbd7c24b6170c269bdcb887740bcade4}{Show\+Options}} (IRead\+Only\+List$<$ string $>$ options)
+\begin{DoxyCompactList}\small\item\em Creates one button per option string, sets each label, and wires clicks to \doxylink{class_dialogue_1_1_scripts_1_1_dialogue_view_af81101298f37d9f07b4169d09f6a052a}{On\+Option\+Clicked}. \end{DoxyCompactList}\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_view_a8234eda8039bc902ce01e5ba02d6a480}\label{class_dialogue_1_1_scripts_1_1_dialogue_view_a8234eda8039bc902ce01e5ba02d6a480} 
+void {\bfseries Stop\+Typing} ()
+\begin{DoxyCompactList}\small\item\em Stops the typewriter coroutine if it is currently running. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_view_a9c5325a5ce5fbbdbf4fe0f0828bca282}\label{class_dialogue_1_1_scripts_1_1_dialogue_view_a9c5325a5ce5fbbdbf4fe0f0828bca282} 
+TMP\+\_\+\+Text {\bfseries dialogue\+Text}
+\begin{DoxyCompactList}\small\item\em Text component used to render the current dialogue line. \end{DoxyCompactList}\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_view_ae0d53ac0a2e7b039283c3f4953e3df16}\label{class_dialogue_1_1_scripts_1_1_dialogue_view_ae0d53ac0a2e7b039283c3f4953e3df16} 
+Transform {\bfseries options\+Parent}
+\begin{DoxyCompactList}\small\item\em Parent transform under which option buttons are instantiated. \end{DoxyCompactList}\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_view_a43aefa25c2f39a976abed337dc2173ce}\label{class_dialogue_1_1_scripts_1_1_dialogue_view_a43aefa25c2f39a976abed337dc2173ce} 
+Game\+Object {\bfseries option\+Button\+Prefab}
+\begin{DoxyCompactList}\small\item\em Prefab used to create an individual option button. The prefab should include a Button and optionally a TMP\+\_\+\+Text or Text label. \end{DoxyCompactList}\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_view_a108e457971a792d5ef44ea2fc985e7a4}\label{class_dialogue_1_1_scripts_1_1_dialogue_view_a108e457971a792d5ef44ea2fc985e7a4} 
+Canvas\+Group {\bfseries options\+Canvas\+Group}
+\begin{DoxyCompactList}\small\item\em Optional group used to enable/disable option interaction and raycasts (useful for fading or blocking input). \end{DoxyCompactList}\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_view_ae98096286e13250f4ef10874cc1c3c12}\label{class_dialogue_1_1_scripts_1_1_dialogue_view_ae98096286e13250f4ef10874cc1c3c12} 
+float {\bfseries characters\+Per\+Second} = 30f
+\begin{DoxyCompactList}\small\item\em Typewriter speed in characters per second. If set to 0 or less, lines are shown instantly. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_view_a12d8d3cb240c5f79f74eed3e7fbd2881}\label{class_dialogue_1_1_scripts_1_1_dialogue_view_a12d8d3cb240c5f79f74eed3e7fbd2881} 
+bool {\bfseries Is\+Typing}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em True while a typewriter coroutine is running. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_view_af81101298f37d9f07b4169d09f6a052a}\label{class_dialogue_1_1_scripts_1_1_dialogue_view_af81101298f37d9f07b4169d09f6a052a} 
+Action$<$ int $>$ {\bfseries On\+Option\+Clicked}
+\begin{DoxyCompactList}\small\item\em Raised when a spawned option button is clicked. The provided integer is the option index (0-\/based). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+UI controller for displaying dialogue text and presenting selectable dialogue options. 
+
+Features\+: 
+\begin{DoxyItemize}
+\item Shows dialogue lines instantly or using a typewriter effect. 
+\item Spawns option buttons from a prefab and raises an event when clicked. 
+\item Temporarily disables interaction for one frame to avoid accidental selection/clicks on spawn. 
+\end{DoxyItemize}Typical usage\+: 
+
+Call \doxylink{class_dialogue_1_1_scripts_1_1_dialogue_view_a7d71fc70ee3f71527a913d46da3b3e87}{Type\+Line} or \doxylink{class_dialogue_1_1_scripts_1_1_dialogue_view_a3759a183ebf724aadc3d6c1227ec1c10}{Set\+Line\+Instant} to show text, and \doxylink{class_dialogue_1_1_scripts_1_1_dialogue_view_abbd7c24b6170c269bdcb887740bcade4}{Show\+Options} to display choices. Subscribe to \doxylink{class_dialogue_1_1_scripts_1_1_dialogue_view_af81101298f37d9f07b4169d09f6a052a}{On\+Option\+Clicked} to be notified when the player selects an option. 
+
+\label{doc-func-members}
+\Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_view_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_view_a3759a183ebf724aadc3d6c1227ec1c10}\index{Dialogue.Scripts.DialogueView@{Dialogue.Scripts.DialogueView}!SetLineInstant@{SetLineInstant}}
+\index{SetLineInstant@{SetLineInstant}!Dialogue.Scripts.DialogueView@{Dialogue.Scripts.DialogueView}}
+\doxysubsubsection{\texorpdfstring{SetLineInstant()}{SetLineInstant()}}
+{\footnotesize\ttfamily \label{class_dialogue_1_1_scripts_1_1_dialogue_view_a3759a183ebf724aadc3d6c1227ec1c10} 
+void Dialogue.\+Scripts.\+Dialogue\+View.\+Set\+Line\+Instant (\begin{DoxyParamCaption}\item[{string}]{text}{}\end{DoxyParamCaption})}
+
+
+
+Stops any ongoing typewriter effect and immediately sets the dialogue text to {\itshape text} . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & The full line to display. Null is treated as an empty string.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_view_abbd7c24b6170c269bdcb887740bcade4}\index{Dialogue.Scripts.DialogueView@{Dialogue.Scripts.DialogueView}!ShowOptions@{ShowOptions}}
+\index{ShowOptions@{ShowOptions}!Dialogue.Scripts.DialogueView@{Dialogue.Scripts.DialogueView}}
+\doxysubsubsection{\texorpdfstring{ShowOptions()}{ShowOptions()}}
+{\footnotesize\ttfamily \label{class_dialogue_1_1_scripts_1_1_dialogue_view_abbd7c24b6170c269bdcb887740bcade4} 
+void Dialogue.\+Scripts.\+Dialogue\+View.\+Show\+Options (\begin{DoxyParamCaption}\item[{IRead\+Only\+List$<$ string $>$}]{options}{}\end{DoxyParamCaption})}
+
+
+
+Creates one button per option string, sets each label, and wires clicks to \doxylink{class_dialogue_1_1_scripts_1_1_dialogue_view_af81101298f37d9f07b4169d09f6a052a}{On\+Option\+Clicked}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & List of option labels to present.\\
+\hline
+\end{DoxyParams}
+
+
+Interaction is disabled for one frame (both at the Canvas\+Group level and per-\/button) to prevent accidental immediate clicks/selection when the UI appears. \Hypertarget{class_dialogue_1_1_scripts_1_1_dialogue_view_a7d71fc70ee3f71527a913d46da3b3e87}\index{Dialogue.Scripts.DialogueView@{Dialogue.Scripts.DialogueView}!TypeLine@{TypeLine}}
+\index{TypeLine@{TypeLine}!Dialogue.Scripts.DialogueView@{Dialogue.Scripts.DialogueView}}
+\doxysubsubsection{\texorpdfstring{TypeLine()}{TypeLine()}}
+{\footnotesize\ttfamily \label{class_dialogue_1_1_scripts_1_1_dialogue_view_a7d71fc70ee3f71527a913d46da3b3e87} 
+void Dialogue.\+Scripts.\+Dialogue\+View.\+Type\+Line (\begin{DoxyParamCaption}\item[{string}]{text}{, }\item[{Action}]{on\+Finished}{}\end{DoxyParamCaption})}
+
+
+
+Displays a line using a typewriter effect. When finished, invokes {\itshape on\+Finished} . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & The line to type. Null is treated as an empty string.\\
+\hline
+{\em on\+Finished} & Callback invoked after typing completes (or is hurried to completion).\\
+\hline
+\end{DoxyParams}
+
+
+This clears any previously spawned options before starting typing. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Dialogue/\+Scripts/Dialogue\+View.\+cs\end{DoxyCompactItemize}

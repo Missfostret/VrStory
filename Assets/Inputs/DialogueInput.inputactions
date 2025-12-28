@@ -1,0 +1,166 @@
+{
+    "version": 1,
+    "name": "DialogueInput",
+    "maps": [
+        {
+            "name": "Dialogue",
+            "id": "d53e626c-82ce-4ca4-ac6f-76b790635b78",
+            "actions": [
+                {
+                    "name": "Advance",
+                    "type": "Button",
+                    "id": "28ffb272-76dd-41da-ad67-b37281115796",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Choose1",
+                    "type": "Button",
+                    "id": "cb1609be-cbc0-4694-8ab3-f822528a1d21",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Choose2",
+                    "type": "Button",
+                    "id": "9fc0f9fb-0b17-42a2-a51d-55ff7fa39f79",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Choose3",
+                    "type": "Button",
+                    "id": "07b09c36-ba92-4677-99a9-e85f19c95831",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Choose4",
+                    "type": "Button",
+                    "id": "f8cac9eb-894a-43c2-9812-939a4ea867d0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Choose5",
+                    "type": "Button",
+                    "id": "787fb2c7-4fe1-4f15-a5eb-ce1cc8c54a0c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Choose6",
+                    "type": "Button",
+                    "id": "acc76e96-a9af-4893-ab06-fbdae598f4e7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d07ee0ad-d87a-4b40-9217-9d1df0944bef",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Advance",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "977b2292-123e-4ee7-b73f-823507857a1c",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Advance",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "556410df-a48d-4177-9666-1be8b0cdb4c5",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Choose1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c8d596cc-22aa-47b6-b6a1-c2dec2a3be7c",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Choose2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "80c54a72-e030-43cc-811d-f7b4ef44b5bf",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Choose3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fc7bb14f-de63-47dd-9a27-32dbe7e9718d",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Choose4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e7132174-33cc-45cd-802b-700b6cf34498",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Choose5",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0eabdfe9-4a40-449a-a707-bbf427673536",
+                    "path": "<Keyboard>/6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Choose6",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -1,0 +1,195 @@
+title: Intro
+---
+Welcome to the ConditionEvaluator test!
+We will set up a few variables and then test many conditions.
+
+<<set hasKey = false>>
+<<set bribedGuard = false>>
+<<set guardAlerted = false>>
+<<set gold = 7>>
+<<set faction = "mages">>
+<<set playerName = "Ari">>
+
+Player: {playerName}
+Gold: {gold}
+Faction: {faction}
+
+Press continue to see conditional lines...
+<<jump BoolTests>>
+===
+
+
+title: BoolTests
+---
+(1) Bool + ! + || + &&
+
+<<if hasKey>>
+You have the key (should NOT show yet).
+<<else>>
+You do NOT have the key (should show).
+<<endif>>
+
+<<if !hasKey>>
+Negation works: !hasKey is true (should show).
+<<else>>
+Negation failed (should NOT show).
+<<endif>>
+
+<<if hasKey || bribedGuard>>
+OR works: hasKey || bribedGuard is true (should NOT show yet).
+<<else>>
+OR works: both false, so else branch shows (should show).
+<<endif>>
+
+<<if !guardAlerted && !hasKey>>
+AND works: both true, so this should show.
+<<else>>
+AND failed (should NOT show).
+<<endif>>
+
+Now we’ll test numeric comparisons.
+<<jump NumberTests>>
+===
+
+
+title: NumberTests
+---
+(2) Numbers: comparisons and parentheses
+
+Current gold is {gold}. (We set it to 7)
+
+<<if gold >= 10>>
+gold >= 10 (should NOT show)
+<<else>>
+gold >= 10 is false (should show)
+<<endif>>
+
+<<if gold < 10>>
+gold < 10 is true (should show)
+<<else>>
+gold < 10 is false (should NOT show)
+<<endif>>
+
+Now we’ll test combined expressions with parentheses:
+Condition: (gold >= 10 && hasKey) || bribedGuard
+
+<<if (gold >= 10 && hasKey) || bribedGuard>>
+Combined condition true (should NOT show yet)
+<<else>>
+Combined condition false (should show)
+<<endif>>
+
+Next: string equality.
+<<jump StringTests>>
+===
+
+
+title: StringTests
+---
+(3) Strings: == and !=
+
+Faction is "{faction}"
+
+<<if faction == "mages">>
+String == works (should show).
+<<else>>
+String == failed (should NOT show).
+<<endif>>
+
+<<if faction != "warriors">>
+String != works (should show).
+<<else>>
+String != failed (should NOT show).
+<<endif>>
+
+Next: null checks and "truthiness".
+<<jump NullTruthinessTests>>
+===
+
+
+title: NullTruthinessTests
+---
+(4) Null + truthiness
+
+We have NOT set 'mysteryVar', so it is null/missing.
+
+<<if mysteryVar == null>>
+mysteryVar == null (should show).
+<<else>>
+mysteryVar == null failed (should NOT show).
+<<endif>>
+
+<<if mysteryVar>>
+Truthiness check: missing var is false (should NOT show).
+<<else>>
+Truthiness check: missing var treated as false, else shows (should show).
+<<endif>>
+
+Now we’ll go to a choice menu that filters options using expressions.
+<<jump ChoiceMenu>>
+===
+
+
+title: ChoiceMenu
+---
+(5) Choice filtering with expressions
+
+Pick one:
+
+-> Add +5 gold [if gold < 10]
+    <<set gold = 12>>
+    <<jump ChoiceMenu>>
+
+-> Become a warrior [if faction == "mages"]
+    <<set faction = "warriors">>
+    <<jump ChoiceMenu>>
+
+-> Bribe guard (cost 10) [if gold >= 10 && !guardAlerted]
+    <<set gold = 0>>
+    <<set bribedGuard = true>>
+    <<jump GateCheck>>
+
+-> Steal key (risky) [if !hasKey]
+    <<set hasKey = true>>
+    <<set guardAlerted = true>>
+    <<jump GateCheck>>
+
+-> Wait (timed auto-pick test)
+    <<jump TimedChoiceNode>>
+===
+
+
+title: GateCheck
+---
+(6) Gate check using a complex condition
+
+Current state:
+hasKey = {hasKey}
+bribedGuard = {bribedGuard}
+guardAlerted = {guardAlerted}
+gold = {gold}
+faction = {faction}
+
+Condition: hasKey || (bribedGuard && !guardAlerted)
+
+<<if hasKey || (bribedGuard && !guardAlerted)>>
+You pass the gate (should show if you bribed without alert OR you stole key).
+<<else>>
+You are blocked (should show if neither condition met).
+<<endif>>
+
+Return to the menu to try other branches.
+<<jump ChoiceMenu>>
+===
+
+
+title: TimedChoiceNode
+---
+(7) Timed choice test: if you do nothing, it should auto-select default index 0 after 3 seconds.
+
+-> Auto default: back to menu [time 3]
+    <<jump ChoiceMenu>>
+
+-> Second option (do not click)
+    <<jump ChoiceMenu>>
+===

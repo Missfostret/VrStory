@@ -1,0 +1,80 @@
+\doxysection{Dialogue.\+Scripts.\+Mini\+Dlg\+Parser Class Reference}
+\hypertarget{class_dialogue_1_1_scripts_1_1_mini_dlg_parser}{}\label{class_dialogue_1_1_scripts_1_1_mini_dlg_parser}\index{Dialogue.Scripts.MiniDlgParser@{Dialogue.Scripts.MiniDlgParser}}
+
+
+Parser for a lightweight dialogue scripting format that produces a set of named \doxylink{class_mini_node}{Mini\+Node} objects.  
+
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Dictionary$<$ string, \mbox{\hyperlink{class_mini_node}{Mini\+Node}} $>$ \mbox{\hyperlink{class_dialogue_1_1_scripts_1_1_mini_dlg_parser_a566fa91f6e12109ee9862dff6d5b1aa2}{Parse\+Nodes\+And\+Lines}} (string text)
+\begin{DoxyCompactList}\small\item\em Parses the dialogue script text into nodes keyed by node name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Parser for a lightweight dialogue scripting format that produces a set of named \doxylink{class_mini_node}{Mini\+Node} objects. 
+
+The input text is interpreted as a sequence of nodes, each with a {\ttfamily title\+:} header and a body. Nodes are stored in a dictionary keyed by node name (case-\/insensitive). 
+
+{\bfseries{Node structure}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{@subsection\ autotoc\_md0\ title:\ Intro}
+\DoxyCodeLine{}
+\DoxyCodeLine{Hello\ there!}
+\DoxyCodeLine{-\/>\ Option\ A\ [\textcolor{keywordflow}{if}\ hasKey]}
+\DoxyCodeLine{\ \ \ \ <<jump\ NextNode>>}
+\DoxyCodeLine{-\/>\ Option\ B}
+\DoxyCodeLine{\ \ \ \ <<\textcolor{keyword}{set}\ hasKey\ =\ \textcolor{keyword}{true}>>}
+\DoxyCodeLine{<<\textcolor{keywordflow}{if}\ hasKey>>}
+\DoxyCodeLine{\ \ \ \ <<jump\ HasKeyNode>>}
+\DoxyCodeLine{<<\textcolor{keywordflow}{else}>>}
+\DoxyCodeLine{\ \ \ \ <<jump\ NoKeyNode>>}
+\DoxyCodeLine{@section\ autotoc\_md1\ <<endif>>}
+
+\end{DoxyCode}
+
+
+{\bfseries{Body rules}}
+
+
+\begin{DoxyItemize}
+\item Plain lines become \doxylink{class_line_step}{Line\+Step}. 
+\item Lines starting with {\ttfamily -\/\texorpdfstring{$>$}{>}} begin a choice block and become a \doxylink{class_choice_step}{Choice\+Step}. 
+\item Command lines are wrapped in {\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} ... \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}} and become \doxylink{class_command_step}{Command\+Step}. 
+\item {\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}if ...\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}} begins a multi-\/line conditional block ending at {\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}endif\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}}. 
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{class_dialogue_1_1_scripts_1_1_mini_dlg_parser_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_dialogue_1_1_scripts_1_1_mini_dlg_parser_a566fa91f6e12109ee9862dff6d5b1aa2}\index{Dialogue.Scripts.MiniDlgParser@{Dialogue.Scripts.MiniDlgParser}!ParseNodesAndLines@{ParseNodesAndLines}}
+\index{ParseNodesAndLines@{ParseNodesAndLines}!Dialogue.Scripts.MiniDlgParser@{Dialogue.Scripts.MiniDlgParser}}
+\doxysubsubsection{\texorpdfstring{ParseNodesAndLines()}{ParseNodesAndLines()}}
+{\footnotesize\ttfamily \label{class_dialogue_1_1_scripts_1_1_mini_dlg_parser_a566fa91f6e12109ee9862dff6d5b1aa2} 
+Dictionary$<$ string, \mbox{\hyperlink{class_mini_node}{Mini\+Node}} $>$ Dialogue.\+Scripts.\+Mini\+Dlg\+Parser.\+Parse\+Nodes\+And\+Lines (\begin{DoxyParamCaption}\item[{string}]{text}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Parses the dialogue script text into nodes keyed by node name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Raw dialogue script contents.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Dictionary of parsed nodes, keyed by node name (case-\/insensitive). 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & Thrown when the script contains invalid structure or malformed commands. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Dialogue/\+Scripts/Mini\+Dlg\+Parser.\+cs\end{DoxyCompactItemize}
